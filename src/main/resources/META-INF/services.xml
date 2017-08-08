@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.6.1-wso2v14  Built on : Jul 25, 2015 (11:19:54 IST) -->
+<serviceGroup>
+   <service name="TemperatureConverter">
+      <messageReceivers>
+         <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out"
+                          class="ws.example.TemperatureConverterMessageReceiverInOut"/>
+      </messageReceivers>
+      <parameter name="ServiceClass">ws.example.TemperatureConverterSkeleton</parameter>
+      <parameter name="useOriginalwsdl">false</parameter>
+      <parameter name="modifyUserWSDLPortAddress">true</parameter>
+      <operation name="f2cConvertion"
+                 mep="http://www.w3.org/ns/wsdl/in-out"
+                 namespace="http://example.ws">
+         <actionMapping>urn:f2cConvertion</actionMapping>
+         <outputActionMapping>http://example.ws/TemperatureConverterPortType/f2cConvertionResponse</outputActionMapping>
+      </operation>
+      <operation name="c2fConvertion"
+                 mep="http://www.w3.org/ns/wsdl/in-out"
+                 namespace="http://example.ws">
+         <actionMapping>urn:c2fConvertion</actionMapping>
+         <outputActionMapping>http://example.ws/TemperatureConverterPortType/c2fConvertionResponse</outputActionMapping>
+      </operation>
+   </service>
+</serviceGroup>

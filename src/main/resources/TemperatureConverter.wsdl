@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://example.ws" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://example.ws/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:axis2="http://example.ws" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+<wsdl:documentation>TemperatureConverter</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://example.ws/xsd" xmlns:ns="http://example.ws/xsd">
+			<xs:element name="c2fConvertion">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="cValue" nillable="true" type="xs:double"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="c2fConvertionResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return" nillable="true" type="xs:double"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="f2cConvertion">
+
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="fValue" nillable="true" type="xs:double"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="f2cConvertionResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return" nillable="true" type="xs:double"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="c2fConvertionResponse">
+    <wsdl:part name="part1" element="ns0:c2fConvertionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="f2cConvertionMessage">
+    <wsdl:part name="part1" element="ns0:f2cConvertion">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="c2fConvertionMessage">
+    <wsdl:part name="part1" element="ns0:c2fConvertion">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="f2cConvertionResponse">
+    <wsdl:part name="part1" element="ns0:f2cConvertionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TemperatureConverterPortType">
+    <wsdl:operation name="f2cConvertion">
+      <wsdl:input message="axis2:f2cConvertionMessage" wsaw:Action="urn:f2cConvertion">
+    </wsdl:input>
+      <wsdl:output message="axis2:f2cConvertionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="c2fConvertion">
+      <wsdl:input message="axis2:c2fConvertionMessage" wsaw:Action="urn:c2fConvertion">
+    </wsdl:input>
+      <wsdl:output message="axis2:c2fConvertionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TemperatureConverterHttpBinding" type="axis2:TemperatureConverterPortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="f2cConvertion">
+      <http:operation location="f2cConvertion"/>
+      <wsdl:input>
+        <mime:content type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="c2fConvertion">
+      <http:operation location="c2fConvertion"/>
+      <wsdl:input>
+        <mime:content type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TemperatureConverterSOAP12Binding" type="axis2:TemperatureConverterPortType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="f2cConvertion">
+      <soap12:operation soapAction="urn:f2cConvertion" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="c2fConvertion">
+      <soap12:operation soapAction="urn:c2fConvertion" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TemperatureConverterSOAP11Binding" type="axis2:TemperatureConverterPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="f2cConvertion">
+      <soap:operation soapAction="urn:f2cConvertion" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="c2fConvertion">
+      <soap:operation soapAction="urn:c2fConvertion" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TemperatureConverter">
+    <wsdl:port name="TemperatureConverterHttpport" binding="axis2:TemperatureConverterHttpBinding">
+      <http:address location="http://localhost:8080/TestLables/services/TemperatureConverter"/>
+    </wsdl:port>
+    <wsdl:port name="TemperatureConverterSOAP12port_http" binding="axis2:TemperatureConverterSOAP12Binding">
+      <soap12:address location="http://localhost:8080/TestLables/services/TemperatureConverter"/>
+    </wsdl:port>
+    <wsdl:port name="TemperatureConverterSOAP11port_http" binding="axis2:TemperatureConverterSOAP11Binding">
+      <soap:address location="http://localhost:8080/TestLables/services/TemperatureConverter"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
